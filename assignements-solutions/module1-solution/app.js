@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  var enjoyMessage  = "Enjoy!";
+  var tooMuchMessage = "Too much!";
+  var enterDataMessage = "Please enter data first";
+
   angular.module('LunchChecker', [])
       .controller('LunchCheckerController', lunchCheckerController);
 
@@ -8,9 +12,25 @@
   function lunchCheckerController ($scope, $filter) {
     $scope.message = "";
     $scope.lunchMenuItems = "";
+    $scope.customStyle = {};
+
+
+
 
     $scope.displayMessage = function () {
       $scope.message = checkLunchItems($scope.lunchMenuItems);
+
+      // message text style in html doc
+      if ($scope.message == enjoyMessage || $scope.message == tooMuchMessage){
+        $scope.messageElementStyle = {"color":"green"};
+        $scope.inputElementStyle = {"border" : "1px solid green"};
+      }else if ($scope.message == enterDataMessage){
+        $scope.messageElementStyle = {"color":"red"};
+        $scope.inputElementStyle = {"border" : "1px solid red"};
+      }
+
+      // input box border style
+
     };
 
     function checkLunchItems (itemsString) {
@@ -22,11 +42,11 @@
 
       //
       if (itemsArray.length === 0 || itemsString === "" || typeof itemsString === 'undefined') {
-        message = "Please enter data first";
+        message = enterDataMessage;
       }else if (itemsArray.length <= 3 && itemsArray.length >= 1){
-        message = "Enjoy!";
+        message = enjoyMessage;
       }else{
-        message = "Too much!";
+        message = tooMuchMessage;
       }
       return message;
     }
