@@ -20,16 +20,16 @@
     $scope.displayMessage = function () {
       $scope.message = checkLunchItems($scope.lunchMenuItems);
 
-      // message text style in html doc
+      // changing message element texte style and input element border style
       if ($scope.message == enjoyMessage || $scope.message == tooMuchMessage){
         $scope.messageElementStyle = {"color":"green"};
         $scope.inputElementStyle = {"border" : "1px solid green"};
       }else if ($scope.message == enterDataMessage){
         $scope.messageElementStyle = {"color":"red"};
-        $scope.inputElementStyle = {"border" : "1px solid red"};
+        $scope.inputElementStyle = {"border" : "2px solid red"};
       }
 
-      // input box border style
+
 
     };
 
