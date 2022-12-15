@@ -5,7 +5,7 @@
       .controller('LunchCheckerController', lunchCheckerController);
 
   lunchCheckerController.$inject = ['$scope', '$filter'];
-  function lunchCheckerController ($scope, $filter,) {
+  function lunchCheckerController ($scope, $filter) {
     $scope.message = "";
     $scope.lunchMenuItems = "";
 
