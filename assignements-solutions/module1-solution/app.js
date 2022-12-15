@@ -12,10 +12,6 @@
   function lunchCheckerController ($scope, $filter) {
     $scope.message = "";
     $scope.lunchMenuItems = "";
-    $scope.customStyle = {};
-
-
-
 
     $scope.displayMessage = function () {
       $scope.message = checkLunchItems($scope.lunchMenuItems);
@@ -56,7 +52,7 @@
   // delete empty items from the itemsArray
   function deleteEmptyItems(itemsArray){
     var filtered = itemsArray.filter(function (el) {
-      return el != "";
+      return el.trim() != "";
     });
     return filtered;
   }
